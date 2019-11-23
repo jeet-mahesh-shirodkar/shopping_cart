@@ -58,11 +58,18 @@ productsDom.innerHTML = result;
 }
 //local storage
 class Storage{
-
+static saveProduct(products){
+localStorage.setItem("products",JSON.stringify(products));
 }
+}
+
+
 document.addEventListener("DOMContentLoaded",()=>{
     const ui = new UI();
     const products = new Products();
 
-    products.getProducts().then(products => ui.displayProduct(products));
-})
+    products.getProducts().then(products => {    
+    ui.displayProduct(products)
+    Storage.saveProduct(products)
+    })
+});
