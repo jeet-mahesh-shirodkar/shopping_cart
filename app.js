@@ -1,7 +1,7 @@
 //Variables
 
 const cartBtn = document.querySelector(".cart-btn");
-console.log(cartBtn); 
+// console.log(cartBtn); 
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
 const cartDom = document.querySelector(".cart");
@@ -17,8 +17,22 @@ let cart = [];
 //getting the products 
 class Products{
  async getProducts(){
-     
-}
+     try {
+        let result= await fetch ('products.json');
+        let data = await result.json();
+          let product =data.items;
+          product =product.map(item =>{
+              const {title,price} = item.fields;
+              const {id} = item.sys;
+              const image = item.fields.image.fields.file.url;
+              return {id,title,price,image}
+          })
+        return product;
+         
+     } catch (error) {
+         console.log(error)
+     }
+ }
 }
 //display product
 class UI{
