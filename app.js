@@ -56,13 +56,15 @@ products.forEach(product => {
 productsDom.innerHTML = result;
 }
 }
-//local storage
+//Local Storage
 class Storage{
 static saveProduct(products){
+    //localStorage has alot of function here we are using setItem
 localStorage.setItem("products",JSON.stringify(products));
 }
 }
 
+//Event Listener
 
 document.addEventListener("DOMContentLoaded",()=>{
     const ui = new UI();
