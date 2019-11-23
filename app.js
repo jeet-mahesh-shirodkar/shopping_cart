@@ -1,7 +1,6 @@
 //Variables
 
 const cartBtn = document.querySelector(".cart-btn");
-// console.log(cartBtn); 
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
 const cartDom = document.querySelector(".cart");
@@ -16,28 +15,45 @@ let cart = [];
 
 //getting the products 
 class Products{
- async getProducts(){
-     try {
-        let result= await fetch ('products.json');
-        let data = await result.json();
-          let product =data.items;
-          product =product.map(item =>{
-              const {title,price} = item.fields;
-              const {id} = item.sys;
-              const image = item.fields.image.fields.file.url;
-              return {id,title,price,image}
-          })
-        return product;
-         
-     } catch (error) {
-         console.log(error)
-     }
+ async getProducts(){ 
+ try {
+    let result= await fetch ('products.json');
+    let data = await result.json();
+      let products =data.items;
+      products =products.map(item => {
+          const {title,price} = item.fields;
+          const {id} = item.sys;
+          const image = item.fields.image.fields.file.url;
+          return {id,title,price,image}
+      })
+    return products;
+     
+ } catch (error) {
+     console.log(error)
+ }
  }
 }
 //display product
 class UI{
-displayProduct(product){
-console.log(product);
+displayProduct(products){
+
+// console.log(products);
+let result = '';
+products.forEach(product => {
+    result +=`
+    <article class="product">
+            <div class="img-container">
+                <img src=${product.image} alt="product" class="product-img">
+                <button class="bag-btn" data-id=${product.id}>
+                    <i class="fas fa-shopping-cart"></i>
+                    add to bag
+                </button>
+            </div>
+            <h3>${product.title}</h3>
+            <h4>${product.price}</h4>
+        </article>`;
+});
+productsDom.innerHTML = result;
 }
 }
 //local storage
@@ -48,5 +64,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     const ui = new UI();
     const products = new Products();
 
-    products.getProducts().then((product => ui.displayProduct(product)));
+    products.getProducts().then(products => ui.displayProduct(products));
 })
