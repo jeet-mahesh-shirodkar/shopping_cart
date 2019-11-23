@@ -36,7 +36,9 @@ class Products{
 }
 //display product
 class UI{
-
+displayProduct(product){
+console.log(product);
+}
 }
 //local storage
 class Storage{
@@ -46,5 +48,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     const ui = new UI();
     const products = new Products();
 
-    products.getProducts().then(products => console.log(products));
+    products.getProducts().then((product => ui.displayProduct(product)));
 })
