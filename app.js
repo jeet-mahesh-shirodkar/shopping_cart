@@ -69,12 +69,19 @@ getbagbutton(){
             button.innerText = "In Cart";
             button.disabled = true;
         }
-        else{
             button.addEventListener('click',(event) =>{
                 event.target.innerText = "In Cart";
                 event.target.disabled = true;
+                //get product from products
+        
+                    
+        //add product to cart 
+        //save cart in local storage
+        //set cart value
+        //display cart items
+        //show the cart
             })
-        }
+        
         
     })
 }
