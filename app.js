@@ -73,8 +73,9 @@ getbagbutton(){
                 event.target.innerText = "In Cart";
                 event.target.disabled = true;
                 //get product from products
-        
-                    
+                let product = Storage.getProduct(id);
+                console.log(product);
+
         //add product to cart 
         //save cart in local storage
         //set cart value
@@ -92,6 +93,10 @@ class Storage{
 static saveProduct(products){
     //localStorage has alot of function here we are using setItem
 localStorage.setItem("products",JSON.stringify(products));
+}
+static getProduct(){
+    let product = JSON.parse(localStorage.getItem("products"));
+     return product.find(product =>{product.id === id});    
 }
 }
 
