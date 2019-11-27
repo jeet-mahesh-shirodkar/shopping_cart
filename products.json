@@ -3,64 +3,64 @@
       {
         "sys": { "id": "1" },
         "fields": {
-          "title": "queen panel bed",
-          "price": 10.99,
+          "title": "AMG",
+          "price": 11,
           "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
         }
       },
       {
         "sys": { "id": "2" },
         "fields": {
-          "title": "king panel bed",
-          "price": 12.99,
+          "title": "Maybach",
+          "price": 12,
           "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
         }
       },
       {
         "sys": { "id": "3" },
         "fields": {
-          "title": "single panel bed",
-          "price": 12.99,
+          "title": "CLA",
+          "price": 19,
           "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
         }
       },
       {
         "sys": { "id": "4" },
         "fields": {
-          "title": "twin panel bed",
-          "price": 22.99,
+          "title": "C Class",
+          "price": 29,
           "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
         }
       },
       {
         "sys": { "id": "5" },
         "fields": {
-          "title": "fridge",
-          "price": 88.99,
+          "title": "S Class",
+          "price": 89,
           "image": { "fields": { "file": { "url": "./images/product-5.jpeg" } } }
         }
       },
       {
         "sys": { "id": "6" },
         "fields": {
-          "title": "dresser",
-          "price": 32.99,
+          "title": "A Class",
+          "price": 29,
           "image": { "fields": { "file": { "url": "./images/product-6.jpeg" } } }
         }
       },
       {
         "sys": { "id": "7" },
         "fields": {
-          "title": "couch",
-          "price": 45.99,
+          "title": "CLA twin",
+          "price": 49,
           "image": { "fields": { "file": { "url": "./images/product-7.jpeg" } } }
         }
       },
       {
         "sys": { "id": "8" },
         "fields": {
-          "title": "table",
-          "price": 33.99,
+          "title": "GLA 4Matic",
+          "price": 39,
           "image": { "fields": { "file": { "url": "./images/product-8.jpeg" } } }
         }
       }
