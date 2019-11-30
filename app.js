@@ -82,6 +82,7 @@ getbagbutton(){
         //save cart in local storage
         Storage.saveCart(cart);
         //set cart value
+        this.setCartValues(cart);
         //display cart items
         //show the cart
             })
@@ -89,12 +90,22 @@ getbagbutton(){
         
     })
 }
+setCartValues(cart){
+    let itemsTotal = 0;
+    let tempTotal = 0;
+    cart.map(item =>{
+        itemsTotal += item.amount;
+        tempTotal += item.price * item.amount; 
+    });
+    cartTotal.innerText = parseFloat(tempTotal.toFixed());
+    cartItems.innerText = itemsTotal;    
+}
 
 }
 //Local Storage
 class Storage{
 static saveProduct(products){
-    //localStorage has alot of function here we are using setItem
+    // localStorage has alot of function here we are using setItem
 localStorage.setItem("products",JSON.stringify(products));
 }
 static getProduct(id){
@@ -106,7 +117,7 @@ static saveCart(cart){
 }
 }
 
-//Event Listener
+// Event Listener
 
 document.addEventListener("DOMContentLoaded",()=>{
     const ui = new UI();
