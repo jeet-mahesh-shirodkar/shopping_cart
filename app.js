@@ -73,11 +73,14 @@ getbagbutton(){
                 event.target.innerText = "In Cart";
                 event.target.disabled = true;
                 //get product from products
-                let cartItems = Storage.getProduct(id);
-                console.log(cartItems);
+                let cartItems = {...Storage.getProduct(id),amount:1};
+                
 
         //add product to cart 
+        cart = [...cart,cartItems];
+        console.log(cart);
         //save cart in local storage
+        Storage.saveCart(cart);
         //set cart value
         //display cart items
         //show the cart
@@ -97,6 +100,9 @@ localStorage.setItem("products",JSON.stringify(products));
 static getProduct(id){
     let products = JSON.parse(localStorage.getItem("products"));
      return products.find(product => product.id === id);    
+}
+static saveCart(cart){
+    localStorage.setItem("cart",JSON.stringify(cart));
 }
 }
 
