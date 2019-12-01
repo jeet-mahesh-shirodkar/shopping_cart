@@ -78,16 +78,15 @@ getbagbutton(){
 
         //add product to cart 
         cart = [...cart,cartItems];
-        console.log(cart);
         //save cart in local storage
         Storage.saveCart(cart);
         //set cart value
         this.setCartValues(cart);
         //display cart items
+        this.addCartItems(cartItems);
         //show the cart
-            })
-        
-        
+        this.showCart();
+            })    
     })
 }
 setCartValues(cart){
@@ -100,7 +99,33 @@ setCartValues(cart){
     cartTotal.innerText = parseFloat(tempTotal.toFixed());
     cartItems.innerText = itemsTotal;    
 }
+addCartItems(item){
+const div = document.createElement("div");
+div.classList.add("cart-item");
+div.innerHTML = `<div class="cart-item">
+<img src=${item.image} alt="product">
+<div>
+        <h4>${item.title}</h4>
+        <h5>${item.price}</h5>
+        <span class="remove-item" data-id=${item.id}>remove</span>
+</div>
+<div>
+    <i class="fas fa-chevron-up"data-id=${item.id}></i>
+    <p class="item-amount">${item.amount}</p>
+    <i class="fas fa-chevron-down"data-id=${item.id}></i>
+</div>
+</div>`;
+cartContent.appendChild(div);
+}
 
+showCart(){
+    console.log("inn");
+    
+    cartOverlay.classList.add('transparentBcg');
+    cartDom.classList.add('showCart');
+    console.log(cartOverlay);
+    
+}
 }
 //Local Storage
 class Storage{
