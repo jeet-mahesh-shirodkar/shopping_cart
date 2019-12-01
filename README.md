@@ -1,2 +1,2 @@
-# shopping_chart
+# shopping_cart
 in progress
